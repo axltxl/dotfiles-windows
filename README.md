@@ -1,7 +1,15 @@
 # dotfiles
-My dotfiles
+My dotfiles for Windows 10+
 
-##Copyright and Licensing
+## How to setup dev environment
+
+1. `vagrant up`
+2. Manually install *VirtualBox Guest Additions* on the guest VM
+3. `vagrant reload`
+4. This directory will be available then at `C:\Users\vagrant\dotfiles`
+5. You have to do this everytime you `vagrant up` a fresh VM
+
+## Copyright and Licensing
 Copyright (c) 2015 Alejandro Ricoveri
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
