@@ -1,4 +1,5 @@
-#Require -Version 5.0
+#Requires -Version 5.0
+#Requires -RunAsAdministrator
 
 # Stop this script at the very first sign of error
 # Source: https://stackoverflow.com/questions/9948517/how-to-stop-a-powershell-script-on-the-first-error
@@ -13,7 +14,7 @@ $dotfiles_dir=$PSScriptRoot
 $DOT_HOME="$HOME\.dotfiles"
 
 # Load Dot module
-Import-Module -Force .\dot\lib\Dot.psm1
+Import-Module -Force $dotfiles_dir\dot\lib\Dot.psm1
 
 ############################
 # It is essential to warn the user about the consequences
@@ -33,7 +34,12 @@ If ($answer -eq "n") {
 # Set up formal $DOT_HOME to be used
 # by scripts
 dot_printf "Set up dotfiles root directory at $DOT_HOME"
-dot_ln $dotfiles_dir $DOT_HOME
+New-Item -ItemType SymbolicLink -Path $DOT_HOME -Target $dotfiles_dir -Force
+
+# Set up powershell
+# dot_printf "Setting up Powershell environment ..."
+# TODO: this is your next task
+# https://technet.microsoft.com/en-us/library/bb613488(v=vs.85).aspx
 
 # Install-Chocolatey
 dot_install_choco

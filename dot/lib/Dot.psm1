@@ -24,15 +24,8 @@ Function Show-Splash {
     Write-Host "***************************************************"
 }
 
-# Create a symlink
-Function Install-Symlink {
-    Param ([string] $src, [string] $dst)
+Function Install-PowershellEnv {
 
-    $path = Split-Path -Path $src
-    $name = Split-Path -Leaf $src
-
-    New-Item -ItemType SymbolicLink -Path $path -Name $name -Value $dst
-    Show-Message "$src -> $dst"
 }
 
 # Install chocolate
@@ -53,4 +46,3 @@ Function Install-Chocolatey {
 New-Alias dot_printf        Show-Message
 New-Alias dot_splash        Show-Splash
 New-Alias dot_install_choco Install-Chocolatey
-New-Alias dot_ln            Install-Symlink
