@@ -28,5 +28,5 @@ Vagrant.configure("2") do |config|
   end
 
   # dotfiles available at C:\Users\vagrant\dotfiles
-  config.vm.synced_folder ".", "/Users/vagrant/dotfiles"
+  config.vm.synced_folder ".", "/Users/vagrant/Projects/dotfiles"
 end
